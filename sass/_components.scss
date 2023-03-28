@@ -1,0 +1,20 @@
+.btn {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-size: var(--fs-s);
+  cursor: pointer;
+
+  &.primary {
+    color: var(--clr-neutral-white);
+    background: linear-gradient(
+      90deg,
+      var(--clr-accent-cyan),
+      var(--clr-accent-blue)
+    );
+    padding: 1.1rem;
+    border-radius: 4rem;
+    width: 17.5rem;
+    margin-inline: auto;
+  }
+}
