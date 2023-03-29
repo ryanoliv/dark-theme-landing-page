@@ -163,7 +163,7 @@ body {
     text-align: center;
     position: relative;
     z-index: 5;
-    margin-bottom: 10rem;
+    margin-bottom: 12rem;
 
     img {
       margin-bottom: 3.375rem;
@@ -194,7 +194,9 @@ body {
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 6rem;
+    row-gap: 6.25rem;
+    max-width: 1050px;
+    margin-inline: auto;
 
     &--card {
       display: grid;
@@ -206,12 +208,13 @@ body {
 
       &--title {
         font-size: 1.2rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
       }
 
       &--subtitle {
         max-width: 355px;
         text-align: center;
+        color: hsla(var(--clr-neutral-white-hsl), 0.8);
       }
     }
   }

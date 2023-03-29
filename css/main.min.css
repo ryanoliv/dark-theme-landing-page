@@ -147,7 +147,7 @@ body {
   text-align: center;
   position: relative;
   z-index: 5;
-  margin-bottom: 10rem;
+  margin-bottom: 12rem;
 }
 .hero__content img {
   margin-bottom: 3.375rem;
@@ -173,7 +173,9 @@ body {
 .features__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 6rem;
+  row-gap: 6.25rem;
+  max-width: 1050px;
+  margin-inline: auto;
 }
 .features__grid--card {
   display: grid;
@@ -184,11 +186,12 @@ body {
 }
 .features__grid--card--title {
   font-size: 1.2rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 .features__grid--card--subtitle {
   max-width: 355px;
   text-align: center;
+  color: hsla(var(--clr-neutral-white-hsl), 0.8);
 }
 
 .btn {
