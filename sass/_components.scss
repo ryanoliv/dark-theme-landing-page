@@ -17,4 +17,14 @@
     width: 17.5rem;
     margin-inline: auto;
   }
+
+  &.secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--clr-accent-cyan);
+    border-bottom: 1px solid var(--clr-accent-cyan);
+    width: max-content;
+    padding-bottom: 0.25rem;
+  }
 }
