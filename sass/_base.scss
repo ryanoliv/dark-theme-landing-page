@@ -351,6 +351,21 @@ body {
     justify-content: space-between;
     gap: 1.5rem;
 
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    #error {
+      margin: 0.5rem 0rem 0rem 2.5rem;
+      color: var(--clr-accent-error);
+      font-size: 10px;
+      font-weight: var(--font-weight-700);
+      position: absolute;
+      bottom: -15px;
+    }
+
     &__input {
       padding: 1rem 20rem 1rem 2.5rem;
       border-radius: 4rem;
@@ -358,6 +373,10 @@ body {
 
       &::placeholder {
         color: hsla(var(--clr-primary-dark-blue-testimonials-hsl), 0.7);
+      }
+
+      &:invalid {
+        border: 1px solid var(--clr-accent-error);
       }
     }
   }
@@ -412,6 +431,19 @@ body {
           &:not(:last-child) {
             margin-bottom: 1.2rem;
           }
+
+          &:hover {
+            font-weight: var(--font-weight-700);
+          }
+
+          &::before {
+            display: block;
+            content: attr(title);
+            font-weight: var(--font-weight-700);
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+          }
         }
       }
     }
@@ -428,6 +460,13 @@ body {
         justify-content: center;
         width: 35px;
         height: 35px;
+        color: var(--clr-neutral-white);
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: var(--clr-accent-cyan);
+          border: 1px solid var(--clr-accent-cyan);
+        }
       }
     }
   }

@@ -169,7 +169,46 @@
               </p>
               <button class="btn secondary">
                 See how Fylo works
-                <img src="/images/icon-arrow.svg" alt="arrow" />
+                <!-- <img src="/images/icon-arrow.svg" alt="arrow" /> -->
+                <svg
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <defs>
+                    <circle id="b" cx="6" cy="6" r="6" />
+                    <filter
+                      x="-25%"
+                      y="-25%"
+                      width="150%"
+                      height="150%"
+                      filterUnits="objectBoundingBox"
+                      id="a"
+                    >
+                      <feOffset in="SourceAlpha" result="shadowOffsetOuter1" />
+                      <feGaussianBlur
+                        stdDeviation="1"
+                        in="shadowOffsetOuter1"
+                        result="shadowBlurOuter1"
+                      />
+                      <feColorMatrix
+                        values="0 0 0 0 0.384313725 0 0 0 0 0.878431373 0 0 0 0 0.850980392 0 0 0 0.811141304 0"
+                        in="shadowBlurOuter1"
+                      />
+                    </filter>
+                  </defs>
+                  <g fill="none" fill-rule="evenodd">
+                    <g transform="translate(2 2)">
+                      <use fill="#000" filter="url(#a)" xlink:href="#b" />
+                      <use fill="#62E0D9" xlink:href="#b" />
+                    </g>
+                    <path
+                      d="M8.582 6l-.363.35 1.452 1.4H5.333v.5h4.338L8.22 9.65l.363.35 2.074-2z"
+                      fill="#1B2330"
+                    />
+                  </g>
+                </svg>
               </button>
             </div>
           </div>
@@ -258,24 +297,6 @@
           </div>
         </div>
       </section>
-      <!-- <section class="early-access">
-        <div class="early-access-text">
-          <h3 class="early-access__title">Get early access today</h3>
-          <p class="early-access__subtitle">
-            It only takes a minute to sign up and our free starter tier is
-            extremely generous. If you have any questions, our support team
-            would be happy to help you.
-          </p>
-        </div>
-        <form action="" class="early-access__form">
-          <input
-            type="email"
-            placeholder="email@example.com"
-            class="early-access__form__input"
-          />
-          <button class="btn primary">Get Started For Free</button>
-        </form>
-      </section> -->
     </main>
     <footer class="footer">
       <div class="early-access">
@@ -287,13 +308,19 @@
             would be happy to help you.
           </p>
         </div>
-        <form action="" class="early-access__form">
-          <input
-            type="email"
-            placeholder="email@example.com"
-            class="early-access__form__input"
-          />
-          <button class="btn primary">Get Started For Free</button>
+        <form action="/" method="GET" class="early-access__form" id="form">
+          <div class="early-access__form__inputs">
+            <input
+              id="email"
+              type="email"
+              placeholder="email@example.com"
+              class="early-access__form__input"
+            />
+            <div id="error"></div>
+          </div>
+          <button type="submit" class="btn primary">
+            Get Started For Free
+          </button>
         </form>
       </div>
       <div class="container">
@@ -332,22 +359,25 @@
           </div>
           <div class="footer__inner__quick-links">
             <ul class="footer__inner__quick-links--list">
-              <li class="footer__inner__quick-links--list--item">
+              <li
+                class="footer__inner__quick-links--list--item"
+                title="About Us"
+              >
                 <a href="#" class="footer__inner__quick-links--list--item--link"
                   >About Us</a
                 >
               </li>
-              <li class="footer__inner__quick-links--list--item">
+              <li class="footer__inner__quick-links--list--item" title="Jobs">
                 <a href="#" class="footer__inner__quick-links--list--item--link"
                   >Jobs</a
                 >
               </li>
-              <li class="footer__inner__quick-links--list--item">
+              <li class="footer__inner__quick-links--list--item" title="Press">
                 <a href="#" class="footer__inner__quick-links--list--item--link"
                   >Press</a
                 >
               </li>
-              <li class="footer__inner__quick-links--list--item">
+              <li class="footer__inner__quick-links--list--item" title="Blog">
                 <a href="#" class="footer__inner__quick-links--list--item--link"
                   >Blog</a
                 >
@@ -356,17 +386,23 @@
           </div>
           <div class="footer__inner__quick-links">
             <ul class="footer__inner__quick-links--list">
-              <li class="footer__inner__quick-links--list--item">
+              <li
+                class="footer__inner__quick-links--list--item"
+                title="Contact Us"
+              >
                 <a href="#" class="footer__inner__quick-links--list--item--link"
                   >Contact Us</a
                 >
               </li>
-              <li class="footer__inner__quick-links--list--item">
+              <li class="footer__inner__quick-links--list--item" title="Terms">
                 <a href="#" class="footer__inner__quick-links--list--item--link"
                   >Terms</a
                 >
               </li>
-              <li class="footer__inner__quick-links--list--item">
+              <li
+                class="footer__inner__quick-links--list--item"
+                title="Privacy"
+              >
                 <a href="#" class="footer__inner__quick-links--list--item--link"
                   >Privacy</a
                 >
@@ -382,13 +418,23 @@
       </div>
     </footer>
 
-    <!-- <footer>
-      <p class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Ryan Oliver</a>.
-      </p>
-    </footer> -->
+    <script>
+      const email = document.getElementById("email");
+      const form = document.getElementById("form");
+      const errorElement = document.getElementById("error");
+
+      form.addEventListener("submit", (e) => {
+        let messages = [];
+
+        if (email.value === "" || email.value === null) {
+          messages.push("Please enter a valid email address");
+        }
+
+        if (messages.length > 0) {
+          e.preventDefault();
+          errorElement.innerText = messages.join(", ");
+        }
+      });
+    </script>
   </body>
 </html>

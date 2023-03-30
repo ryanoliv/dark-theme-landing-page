@@ -16,6 +16,25 @@
     border-radius: 4rem;
     width: 17.5rem;
     margin-inline: auto;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--clr-accent-blue);
+      mix-blend-mode: color;
+      border-radius: 4rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
   }
 
   &.secondary {
@@ -26,5 +45,24 @@
     border-bottom: 1px solid var(--clr-accent-cyan);
     width: max-content;
     padding-bottom: 0.25rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--clr-neutral-white);
+      border-bottom: 1px solid var(--clr-neutral-white);
+    }
+
+    // &:hover svg g use {
+    //   fill: var(--clr-neutral-white);
+    // }
   }
+}
+
+svg g use {
+  fill: var(--clr-accent-cyan);
+  transition: all 0.3s ease;
+}
+
+.btn.secondary:hover svg g use {
+  fill: var(--clr-neutral-white);
 }

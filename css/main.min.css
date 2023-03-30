@@ -307,6 +307,19 @@ body {
   justify-content: space-between;
   gap: 1.5rem;
 }
+.early-access__form__inputs {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.early-access__form #error {
+  margin: 0.5rem 0rem 0rem 2.5rem;
+  color: var(--clr-accent-error);
+  font-size: 10px;
+  font-weight: var(--font-weight-700);
+  position: absolute;
+  bottom: -15px;
+}
 .early-access__form__input {
   padding: 1rem 20rem 1rem 2.5rem;
   border-radius: 4rem;
@@ -314,6 +327,9 @@ body {
 }
 .early-access__form__input::placeholder {
   color: hsla(var(--clr-primary-dark-blue-testimonials-hsl), 0.7);
+}
+.early-access__form__input:invalid {
+  border: 1px solid var(--clr-accent-error);
 }
 
 .footer {
@@ -355,6 +371,17 @@ body {
 .footer__inner__quick-links--list--item:not(:last-child) {
   margin-bottom: 1.2rem;
 }
+.footer__inner__quick-links--list--item:hover {
+  font-weight: var(--font-weight-700);
+}
+.footer__inner__quick-links--list--item::before {
+  display: block;
+  content: attr(title);
+  font-weight: var(--font-weight-700);
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
 .footer__inner__socials {
   display: flex;
   gap: 1.5rem;
@@ -367,6 +394,12 @@ body {
   justify-content: center;
   width: 35px;
   height: 35px;
+  color: var(--clr-neutral-white);
+  transition: all 0.3s ease;
+}
+.footer__inner__socials a:hover {
+  color: var(--clr-accent-cyan);
+  border: 1px solid var(--clr-accent-cyan);
 }
 
 .btn {
@@ -383,6 +416,23 @@ body {
   border-radius: 4rem;
   width: 17.5rem;
   margin-inline: auto;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.btn.primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-accent-blue);
+  mix-blend-mode: color;
+  border-radius: 4rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.btn.primary:hover::before {
+  opacity: 1;
 }
 .btn.secondary {
   display: flex;
@@ -392,6 +442,20 @@ body {
   border-bottom: 1px solid var(--clr-accent-cyan);
   width: max-content;
   padding-bottom: 0.25rem;
+  transition: all 0.3s ease;
+}
+.btn.secondary:hover {
+  color: var(--clr-neutral-white);
+  border-bottom: 1px solid var(--clr-neutral-white);
+}
+
+svg g use {
+  fill: var(--clr-accent-cyan);
+  transition: all 0.3s ease;
+}
+
+.btn.secondary:hover svg g use {
+  fill: var(--clr-neutral-white);
 }
 
 /*# sourceMappingURL=main.min.css.map */
