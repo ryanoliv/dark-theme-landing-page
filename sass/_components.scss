@@ -47,6 +47,10 @@
     padding-bottom: 0.25rem;
     transition: all 0.3s ease;
 
+    @media (max-width: 500px) {
+      font-size: var(--fs-xs);
+    }
+
     &:hover {
       color: var(--clr-neutral-white);
       border-bottom: 1px solid var(--clr-neutral-white);
