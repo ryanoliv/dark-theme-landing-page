@@ -94,6 +94,8 @@ body {
 
 .container {
   padding-inline: 5rem;
+  max-width: 1440px;
+  margin-inline: auto;
 
   @media (max-width: 1300px) {
     padding-inline: 3rem;
@@ -290,7 +292,7 @@ body {
 .stay-productive {
   &__content {
     display: flex;
-    gap: 3.4rem;
+    gap: 4rem;
     padding-inline: 1.5rem;
     padding-bottom: 8rem;
 
@@ -320,6 +322,7 @@ body {
       &--subtitle {
         font-size: var(--fs-s);
         color: hsla(var(--clr-neutral-white-hsl), 0.8);
+        max-width: 585px;
       }
     }
   }
